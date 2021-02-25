@@ -1,0 +1,38 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+
+<!-- Map Div -->
+<div id="tools" class="esri-widget">
+  <img (click)="zoomInClick()" src="../assets/esriZoomIn.png" alt="Zoom In" title="Zoom In" class="tool" id="zoomin" />
+  <img (click)="zoomOutClick()" src="../assets/esriZoomOut.png" alt="Zoom Out" title="Zoom Out" class="tool" id="zoomout" />
+  <img (click)="panMapClick()" src="../assets/esriPan.png" alt="Pan Map" title="Pan Map" class="tool selected" id="panmap" />
+  <img src="../assets/esriZoomFullExtent.png" alt="Full Extent" title="Full Extent" class="tool" id="zoomfull" />
+  <img src="../assets/backward.png" alt="Back Extent" title="Back Extent" class="tool" id="zoomprev" />
+  <img src="../assets/forward.png" alt="Forward Extent" title="Forward Extent" class="tool" id="zoomnext" />
+</div>
+<div #mapViewNode></div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
