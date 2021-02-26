@@ -296,6 +296,24 @@ export class AppComponent implements OnInit, OnDestroy {
     this.draw.reset();
   }
 
+  fullExtentClick() {
+    this.view.goTo( this.fullExtent );
+  }
+
+  prevExtent() {
+    if(this._extentHistory[this._extentHistoryIndx].preExtent){
+      this._prevExtent = true;
+      this.view.goTo(this._extentHistory[this._extentHistoryIndx].preExtent);
+      this._extentHistoryIndx--;
+    }
+  }
+
+  nextExtent() {
+    this._nextExtent = true;
+    this._extentHistoryIndx++;
+    this.view.goTo(this._extentHistory[this._extentHistoryIndx].currentExtent);
+  }
+
   ngOnDestroy(): void {
     if (this.view) {
       // destroy the map view

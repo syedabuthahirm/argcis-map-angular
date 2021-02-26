@@ -23,9 +23,9 @@
   <img (click)="zoomInClick()" src="../assets/esriZoomIn.png" alt="Zoom In" title="Zoom In" class="tool" id="zoomin" />
   <img (click)="zoomOutClick()" src="../assets/esriZoomOut.png" alt="Zoom Out" title="Zoom Out" class="tool" id="zoomout" />
   <img (click)="panMapClick()" src="../assets/esriPan.png" alt="Pan Map" title="Pan Map" class="tool selected" id="panmap" />
-  <img src="../assets/esriZoomFullExtent.png" alt="Full Extent" title="Full Extent" class="tool" id="zoomfull" />
-  <img src="../assets/backward.png" alt="Back Extent" title="Back Extent" class="tool" id="zoomprev" />
-  <img src="../assets/forward.png" alt="Forward Extent" title="Forward Extent" class="tool" id="zoomnext" />
+  <img (click)="fullExtentClick()" src="../assets/esriZoomFullExtent.png" alt="Full Extent" title="Full Extent" class="tool" id="zoomfull" />
+  <img (click)="prevExtent()" src="../assets/backward.png" alt="Back Extent" title="Back Extent" class="tool" id="zoomprev" />
+  <img (click)="nextExtent()" src="../assets/forward.png" alt="Forward Extent" title="Forward Extent" class="tool" id="zoomnext" />
 </div>
 <div #mapViewNode></div>
 
