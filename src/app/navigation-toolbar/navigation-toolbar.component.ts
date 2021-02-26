@@ -4,6 +4,8 @@ import Draw from '@arcgis/core/views/2d/draw/Draw';
 import Graphic from '@arcgis/core/Graphic';
 import Extent from '@arcgis/core/geometry/Extent';
 import * as watchUtils from '@arcgis/core/core/watchUtils';
+import SimpleFillSymbol from '@arcgis/core/symbols/SimpleFillSymbol';
+import Point from '@arcgis/core/geometry/Point';
 
 @Component({
   selector: 'app-navigation-toolbar',
@@ -58,7 +60,6 @@ export class NavigationToolbarComponent implements OnInit {
       this._extentHistoryIndx = this._extentHistory.length - 1;
     }
     this._prevExtent = this._nextExtent = false;
-    // this.extentHistoryChange(); dom changes
   }
 
   enableViewPanning() {
@@ -109,9 +110,6 @@ export class NavigationToolbarComponent implements OnInit {
 
   removeCurrentSelTool() {
     this.view.popup.close();
-    // domClass.remove(dom.byId("panmap"), "selected");
-    // domClass.remove(dom.byId("zoomin"), "selected");
-    // domClass.remove(dom.byId("zoomout"), "selected");
   }
 
   drawRect(event) {
@@ -127,15 +125,13 @@ export class NavigationToolbarComponent implements OnInit {
 
     var graphic = new Graphic({
       geometry: extent,
-      symbol: {
-        type: "simple-fill", // autocasts as SimpleFillSymbol
+      symbol: new SimpleFillSymbol({
         color: [0, 0, 0, 0.3],
-        style: "solid",
         outline: { // autocasts as SimpleLineSymbol
           color: [255, 0, 0],
           width: 1
         }
-      }
+      }),
     });
 
     this.view.graphics.add(graphic);
@@ -182,8 +178,8 @@ export class NavigationToolbarComponent implements OnInit {
       spatialReference: this.view.spatialReference
     };
     if (rect.width !== 0 || rect.height !== 0) {
-      var scrPnt1 = this.view.toScreen(rect);
-      var scrPnt2 = this.view.toScreen({ x: rect.x + rect.width, y: rect.y, spatialReference: rect.spatialReference });
+      var scrPnt1 = this.view.toScreen(new Point(rect));
+      var scrPnt2 = this.view.toScreen(new Point({ x: rect.x + rect.width, y: rect.y, spatialReference: rect.spatialReference }));
       var mWidth = this.view.extent.width;
       var delta = (mWidth * this.view.width / Math.abs(scrPnt2.x - scrPnt1.x) - mWidth) / 2;
       var vExtent = this.view.extent;
